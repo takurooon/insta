@@ -7,6 +7,9 @@
         <%= @blog.created_at %>
       </div>
       <div>
+        <%= @blog.user.name %><%= "さんの投稿" %>
+      </div>
+      <div>
         <p>
           <%= image_tag @blog.picture %>
         </p>

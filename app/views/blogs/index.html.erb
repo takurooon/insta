@@ -4,7 +4,8 @@
     <% @blogs.each do |blog| %>
       <div class="blogs-index-item col-md-4">
         <%= image_tag blog.picture %>
-        <%= link_to("クリック!","/blogs/#{blog.id}") %>
+        <%= blog.user.name %><%= "さんの投稿を" %>
+        <%= link_to("見る","/blogs/#{blog.id}") %>
       </div>
     <% end %>
   </div>
