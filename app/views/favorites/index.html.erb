@@ -1,0 +1,36 @@
+<h2>お気に入り</h2>
+<!--
+    <% @favorite_blogs.each do |favorite| %>
+      <div class="box30">
+        <div class="box-title">投稿者<%= favorite.user.name %></div>
+        <div class="box-title"><%= favorite.blog_id %></td>
+        <td><%= link_to '詳細', favorites_path %></td>
+        <td><%= link_to '解除', favorite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %> -->
+
+
+    <!-- <div class="container row">
+      <% @favorite_blogs.each do |favorite| %>
+        <div class="blogs-index-item col-md-4">
+          <%= image_tag favorite.blog.picture %>
+          <%= favorite.blog.content %>
+        <% end %>
+          <%= link_to '詳細', favorites_path %>
+          <%= link_to '解除', favorites_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+    </div> -->
+
+
+
+    <div class="main-posts-show">
+      <div class="container">
+        <div class="posts-show-item">
+          <% if @favorites_blogs.present? %>
+            <% @favorites_posts.each do |favorite| %>
+                <p><%= favorite.content %></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>

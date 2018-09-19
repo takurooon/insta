@@ -1,0 +1,15 @@
+<center><h2>投稿一覧</h2><br>
+
+  <div class="container row">
+    <% @blogs.each do |blog| %>
+      <div class="blogs-index-item col-md-4">
+        <%= image_tag blog.picture %>
+        <%= link_to("クリック!","/blogs/#{blog.id}") %>
+      </div>
+    <% end %>
+  </div>
+
+
+<br>
+
+<%= link_to '投稿する', new_blog_path, class:"square_btn" %>

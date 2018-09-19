@@ -1,0 +1,32 @@
+<%= form_with(model: blog, local: true) do |form| %><br>
+
+  <% if blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(blog.errors.count, "error") %> 件のエラーがあります:</h2>
+
+      <ul>
+      <% blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :写真 %>
+    <%= form.file_field :picture, id: :blog_picture %>
+    <%= form.hidden_field :picture_cache %>
+  </div>
+<br>
+  <div class="field">
+    <%= form.label :投稿 %>
+    <%= form.text_area :content, id: :blog_content, :size => "45x5", placeholder:"最大140文字で気持ちを表現しよう！"%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<br>
+
+<%= link_to 'トップに戻る', blogs_path %>

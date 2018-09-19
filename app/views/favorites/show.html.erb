@@ -1,0 +1,26 @@
+<% if @favorite_blogs.present? %>
+  <% @favorite_blogs.each do |t| %>
+    <div class="box30">
+      <div class="box-title">writer：<%= t.user.name %></div>
+      <div class="box-title">Picture：<%= t.picture %></div>
+      <p><%= t.content %></p>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+<!-- <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @favorite.user_id %>
+</p>
+
+<p>
+  <strong>Blog:</strong>
+  <%= @favorite.blog_id %>
+</p>
+
+<%= link_to 'Edit', edit_favorite_path(@favorite) %> |
+<%= link_to 'Back', favorites_path %> -->

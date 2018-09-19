@@ -1,0 +1,26 @@
+<h2>マイページ</h2>
+
+<p>
+  <%= @user.name %>
+  <strong>さんのページ</strong>
+</p>
+
+<br>
+<br>
+
+<h3>お気に入り</h3>
+
+<div class="main-posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <% if @favorites_blogs.present? %>
+        <% @favorites_blogs.each do |favorite| %>
+        <p><%= image_tag favorite.picture %></p>
+        <p><%= favorite.content %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= link_to '一覧に戻る', blogs_path %>

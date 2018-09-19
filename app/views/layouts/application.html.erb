@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Insta</title>
+    <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <header>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+                <span class="sr-only">Insta</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                <!-- <%= link_to 'トップ',blogs_path, class:"navbar-brand"%> -->
+            </div>
+            <div id="gnavi" class="collapse navbar-collapse">
+
+              <ul class="nav navbar-nav">
+                <li class="col-lg-3"><%= link_to 'トップ',blogs_path, class:"navbar-brand"%></li>
+                <!-- <li class="col-md-2"><%= link_to 'お気に入り',favorites_path, class:"navbar-brand"%></li> -->
+
+                <li class="col-lg-3"><%= link_to '投稿',new_blog_path, class:"navbar-brand"%></li>
+
+                <% if logged_in? %>
+                      <li class="col-lg-3"><%= link_to "マイページ", user_path(current_user.id), class:"navbar-brand" %></li>
+                      <li class="col-lg-3"><%= link_to "ログアウト", new_session_path(current_user.id), method: :delete, class:"navbar-brand" %></li>
+                  <% else %>
+                      <li class="col-lg-3"><%= link_to "新規登録", new_user_path, class:"navbar-brand" %></li>
+                      <li class="col-lg-3"><%= link_to "ログイン", new_session_path, class:"navbar-brand" %></li>
+                <% end %>
+              </ul>
+            </div>
+
+          </div>
+        </nav>
+      </header>
+
+
+
+      <div class="container">
+
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+
+        <!-- <% if logged_in? %>
+              <%= link_to "マイページ", user_path(current_user.id), class:"square_btn" %>
+              <%= link_to "ログアウト", new_session_path(current_user.id), method: :delete, class:"square_btn" %>
+          <% else %>
+              <%= link_to "新規登録", new_user_path, class:"square_btn" %>
+              <%= link_to "ログイン", new_session_path, class:"square_btn" %>
+        <% end %> -->
+      </div>
+
+      <div class="jumbotron">
+        <div class="container">
+        <%= yield %>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="row">
+          "2018@ Takuro Kodama"
+        </div>
+      </footer>
+    </div>
+
+  </body>
+</html>

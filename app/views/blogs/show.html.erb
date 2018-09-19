@@ -1,0 +1,43 @@
+<center><h2>詳細</h2></center>
+
+<div class="main-posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="post-time">
+        <%= @blog.created_at %>
+      </div>
+      <div>
+        <p>
+          <%= image_tag @blog.picture %>
+        </p>
+      </div>
+      <div>
+        <p>
+          <%= @blog.content %>
+        </p>
+      </div>
+      <div class="post-menus">
+        <dl id="accordion">
+          <% if @blog.user == current_user %>
+          <dt class="posts-show-change">↓変更</dt>
+            <dd><%= link_to "編集", edit_blog_path(@blog.id) %>
+            <br>
+            <%= link_to "削除", blog_path(@blog.id),method: :delete %>
+            </dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% unless @blog.user == current_user %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(blog_id: @blog.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(blog_id: @blog.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
+<%= link_to '投稿一覧に戻る', blogs_path %>
