@@ -4,7 +4,7 @@
     <div class="row row-eq-height">
     <% @blogs.each do |blog| %>
       <div class="blogs-index-item col-md-4">
-        <%= image_tag blog.picture %>
+        <img src="<%= blog.picture %>" class="img-responsive">
         <br><%= blog.user.name %><%= "さんの投稿を" %>
         <%= link_to("見る","/blogs/#{blog.id}") %>
       </div>
