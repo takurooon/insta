@@ -1,6 +1,7 @@
 <center><h2>投稿一覧</h2><br>
 
-  <div class="container row">
+  <div class="container">
+    <div class="row row-eq-height">
     <% @blogs.each do |blog| %>
       <div class="blogs-index-item col-md-4">
         <%= image_tag blog.picture %>
@@ -8,6 +9,7 @@
         <%= link_to("見る","/blogs/#{blog.id}") %>
       </div>
     <% end %>
+    </div>
   </div>
 
 

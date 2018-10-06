@@ -57,6 +57,11 @@ input[type="submit"]:hover {
 }
 
 
+.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .posts-index-item {
   padding: 20px 30px;
   background-color: white;
