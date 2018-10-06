@@ -15,7 +15,8 @@ class FavoritesController < ApplicationController
       redirect_to blogs_url, notice: "#{favorite.blog.user.name}さんのブログをお気に入りに登録しました。"
     end
 
-   private
+    private
+    
     def must_logged_in
       redirect_to new_session_path unless logged_in?
     end
